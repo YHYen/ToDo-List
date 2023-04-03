@@ -16,6 +16,7 @@
 		2CCBCE9B29D8D42200638D45 /* ToDoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCE9A29D8D42200638D45 /* ToDoDetailTableViewController.swift */; };
 		2CCBCE9F29D9670E00638D45 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCE9E29D9670E00638D45 /* ToDoItem.swift */; };
 		2CCBCEA529DA8FA900638D45 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCEA429DA8FA900638D45 /* ListTableViewCell.swift */; };
+		2CCBCEA929DAF1A000638D45 /* ToDoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCEA829DAF1A000638D45 /* ToDoItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2CCBCE9A29D8D42200638D45 /* ToDoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailTableViewController.swift; sourceTree = "<group>"; };
 		2CCBCE9E29D9670E00638D45 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		2CCBCEA429DA8FA900638D45 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		2CCBCEA829DAF1A000638D45 /* ToDoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +67,10 @@
 				2CCBCE6629D830CF00638D45 /* AppDelegate.swift */,
 				2CCBCE6829D830CF00638D45 /* SceneDelegate.swift */,
 				2CCBCE9E29D9670E00638D45 /* ToDoItem.swift */,
+				2CCBCEA829DAF1A000638D45 /* ToDoItems.swift */,
 				2CCBCE6A29D830CF00638D45 /* ToDoListViewController.swift */,
-				2CCBCEA429DA8FA900638D45 /* ListTableViewCell.swift */,
 				2CCBCE9A29D8D42200638D45 /* ToDoDetailTableViewController.swift */,
+				2CCBCEA429DA8FA900638D45 /* ListTableViewCell.swift */,
 				2CCBCE6C29D830CF00638D45 /* Main.storyboard */,
 				2CCBCE6F29D830D000638D45 /* Assets.xcassets */,
 				2CCBCE7129D830D000638D45 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CCBCE6B29D830CF00638D45 /* ToDoListViewController.swift in Sources */,
+				2CCBCEA929DAF1A000638D45 /* ToDoItems.swift in Sources */,
 				2CCBCE6729D830CF00638D45 /* AppDelegate.swift in Sources */,
 				2CCBCE9F29D9670E00638D45 /* ToDoItem.swift in Sources */,
 				2CCBCE9B29D8D42200638D45 /* ToDoDetailTableViewController.swift in Sources */,
