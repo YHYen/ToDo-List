@@ -17,6 +17,8 @@
 		2CCBCE9F29D9670E00638D45 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCE9E29D9670E00638D45 /* ToDoItem.swift */; };
 		2CCBCEA529DA8FA900638D45 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCEA429DA8FA900638D45 /* ListTableViewCell.swift */; };
 		2CCBCEA929DAF1A000638D45 /* ToDoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCEA829DAF1A000638D45 /* ToDoItems.swift */; };
+		2CCBCEAE29DAFB3D00638D45 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCEAD29DAFB3D00638D45 /* LocalNotificationManager.swift */; };
+		2CCBCEB029DB05B600638D45 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBCEAF29DB05B600638D45 /* UIViewController+alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		2CCBCE9E29D9670E00638D45 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		2CCBCEA429DA8FA900638D45 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		2CCBCEA829DAF1A000638D45 /* ToDoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItems.swift; sourceTree = "<group>"; };
+		2CCBCEAD29DAFB3D00638D45 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		2CCBCEAF29DB05B600638D45 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			children = (
 				2CCBCE6629D830CF00638D45 /* AppDelegate.swift */,
 				2CCBCE6829D830CF00638D45 /* SceneDelegate.swift */,
+				2CCBCEAD29DAFB3D00638D45 /* LocalNotificationManager.swift */,
+				2CCBCEAF29DB05B600638D45 /* UIViewController+alert.swift */,
 				2CCBCE9E29D9670E00638D45 /* ToDoItem.swift */,
 				2CCBCEA829DAF1A000638D45 /* ToDoItems.swift */,
 				2CCBCE6A29D830CF00638D45 /* ToDoListViewController.swift */,
@@ -153,9 +159,11 @@
 				2CCBCE6B29D830CF00638D45 /* ToDoListViewController.swift in Sources */,
 				2CCBCEA929DAF1A000638D45 /* ToDoItems.swift in Sources */,
 				2CCBCE6729D830CF00638D45 /* AppDelegate.swift in Sources */,
+				2CCBCEB029DB05B600638D45 /* UIViewController+alert.swift in Sources */,
 				2CCBCE9F29D9670E00638D45 /* ToDoItem.swift in Sources */,
 				2CCBCE9B29D8D42200638D45 /* ToDoDetailTableViewController.swift in Sources */,
 				2CCBCE6929D830CF00638D45 /* SceneDelegate.swift in Sources */,
+				2CCBCEAE29DAFB3D00638D45 /* LocalNotificationManager.swift in Sources */,
 				2CCBCEA529DA8FA900638D45 /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

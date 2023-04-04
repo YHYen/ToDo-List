@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 
 private let dateFormatter: DateFormatter = {
@@ -17,13 +18,14 @@ private let dateFormatter: DateFormatter = {
 
 
 class ToDoDetailTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var reminderSwitch: UISwitch!
+    @IBOutlet weak var compactDatePicker: UIDatePicker!
     
     var toDoItem: ToDoItem!
     
@@ -34,6 +36,21 @@ class ToDoDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // show or hide appropriate date picker
+        if #available(iOS 14.0, *) { // use compact version
+            datePicker = compactDatePicker
+            datePicker.isHidden = false
+            dateLabel.isHidden = true
+        } else { // use old .wheel version
+            compactDatePicker.isHidden = true
+            dateLabel.isHidden = false
+        }
+        
+        
+        // setup foreground notification
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         // hide the keyboard if we tap outside of a field
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -50,6 +67,12 @@ class ToDoDetailTableViewController: UITableViewController {
     }
     
     
+    @objc func appActiveNotification() {
+        print("😯 The app just came to the foreground - cool")
+        updateReminderSwitch()
+    }
+    
+    
     func updateUserInterface() {
         nameField.text = toDoItem.name
         datePicker.date = toDoItem.date
@@ -57,7 +80,27 @@ class ToDoDetailTableViewController: UITableViewController {
         reminderSwitch.isOn = toDoItem.reminderSet
         dateLabel.textColor = (reminderSwitch.isOn ? .black : .gray)
         dateLabel.text = dateFormatter.string(from: toDoItem.date)
+        datePicker.isEnabled = reminderSwitch.isOn
         enableDisableSaveButton(text: nameField.text!)
+        updateReminderSwitch()
+    }
+    
+    
+    func updateReminderSwitch() {
+        LocalNotificationManager.isAuthorized { (authorized) in
+            DispatchQueue.main.sync {
+                if !authorized && self.reminderSwitch.isOn {
+                    self.oneButtonAlert(title: "User has not allow notification", message: "To receive alerts to reminders, open the Settings app, select To Do List > Notifications > Allow Notifications.")
+                    self.reminderSwitch.isOn = false
+                }
+                
+                self.view.endEditing(true)
+                self.dateLabel.textColor = (self.reminderSwitch.isOn ? .black : .gray)
+                self.datePicker.isEnabled = self.reminderSwitch.isOn
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+            }
+        }
     }
     
     
@@ -87,10 +130,7 @@ class ToDoDetailTableViewController: UITableViewController {
     
     
     @IBAction func reminderSwitchChanged(_ sender: UISwitch) {
-        self.view.endEditing(true)
-        dateLabel.textColor = (reminderSwitch.isOn ? .black : .gray)
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        updateReminderSwitch()
     }
     
     
@@ -110,7 +150,11 @@ extension ToDoDetailTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
         case datePickerIndexPath:
-            return reminderSwitch.isOn ? datePicker.frame.height : 0
+            if #available(iOS 14.0, *) {
+                return 0
+            } else {
+                return reminderSwitch.isOn ? datePicker.frame.height : 0
+            }
         case notesTextViewIndexPath:
             return notesRowHeight
         default:
